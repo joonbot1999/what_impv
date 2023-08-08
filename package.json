@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
+    "crypto-js": "^4.1.1",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
-    "firebase": "^9.20.0",
-    "framer-motion": "^10.12.4",
+    "firebase": "^10.0.0",
+    "framer-motion": "^10.12.16",
     "next": "13.3.0",
     "next-auth": "^4.22.1",
     "postcss": "8.4.23",

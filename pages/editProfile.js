@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getFirestore, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from "../../pages/firebase_folder/firebase-config";
 import { useEffect, useRef, useState } from "react"
 import { useSession } from 'next-auth/react';
@@ -16,13 +16,12 @@ export default function EditProfile() {
         let nameField = nameRef.current.value;
         let imageData = imageRef.current.files[0];
         if (imageData === null && nameField === null) {
-
             return;
         } else {
             if (name == nameField) {
                 nameField = name;
             }
-            if (imgeData === null) {
+            if (imageData === null) {
                 imageData = image;
             }
             await fetch('/api/changePfp', {

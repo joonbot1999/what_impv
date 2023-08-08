@@ -4,11 +4,10 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Modal() {
+export default function Modal({ children }) {
   return (
-
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      
+      {children}
     </div>
   )
 }

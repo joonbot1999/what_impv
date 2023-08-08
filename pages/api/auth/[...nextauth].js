@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+import { redirect } from 'next/dist/server/api-utils';
 export const authOptions = {
  providers: [
   GoogleProvider({
@@ -10,8 +11,20 @@ export const authOptions = {
  session: {
   strategy: 'jwt',
  },
+ callbacks: {
+   async signIn( {user}) {
+      if (user.email.includes("@uw.edu")) {
+         return true;
+      } else {
+         // or I can return a URL to redirect to, but I'm doing that under pages
+         return false;
+      }
+   }
+ },
  pages: {
-    signOut: "/"
+   error: '/error/oopsiepoopsie'
  }
 };
+
+
 export default NextAuth(authOptions);
